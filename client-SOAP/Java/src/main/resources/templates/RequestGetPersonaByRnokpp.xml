@@ -1,0 +1,10 @@
+<x:Envelope
+    xmlns:x="http://schemas.xmlsoap.org/soap/envelope/"
+    xmlns:gsp="http://spring.io/guides/gs-producing-web-service">
+    <x:Header/>
+    <x:Body>
+        <gsp:getPersonaRequest>
+            <gsp:rnokpp>$SEARCH_DATA</gsp:rnokpp>
+        </gsp:getPersonaRequest>
+    </x:Body>
+</x:Envelope>

@@ -1,0 +1,121 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://spring.io/guides/gs-producing-web-service"
+           targetNamespace="http://spring.io/guides/gs-producing-web-service" elementFormDefault="qualified">
+
+
+    <xs:element name="getPersonaRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="rnokpp" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getPersonaResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="personaXml" type="tns:personaXml"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getPersonaListRequest">
+        <xs:complexType>
+            <xs:sequence/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getPersonaListResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="personaXml" type="tns:personaXml"
+					maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+    </xs:element>
+
+    <xs:element name="addPersonaRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="firstName" type="xs:string"/>
+                <xs:element name="patronymic" type="xs:string"/>
+                <xs:element name="lastName" type="xs:string"/>
+                <xs:element name="birthDate" type="xs:date"/>
+                <xs:element name="rnokpp" type="xs:string"/>
+                <xs:element name="unzr" type="xs:string"/>
+                <xs:element name="pasport" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="addPersonaResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="answerXml" type="tns:answerXml"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="updatePersonaRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="firstName" type="xs:string"/>
+                <xs:element name="patronymic" type="xs:string"/>
+                <xs:element name="lastName" type="xs:string"/>
+                <xs:element name="birthDate" type="xs:date"/>
+                <xs:element name="rnokpp" type="xs:string"/>
+                <xs:element name="unzr" type="xs:string"/>
+                <xs:element name="pasport" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="updatePersonaResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="answerXml" type="tns:answerXml"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="deletePersonaRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="rnokpp" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="deletePersonaResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="answerXml" type="tns:answerXml"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+    <xs:complexType name="answerXml">
+        <xs:sequence>
+            <xs:element name="status" type="xs:boolean"/>
+            <xs:element name="descr" type="xs:string"/>
+            <xs:element name="result" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="personaXml">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long"/>
+            <xs:element name="firstName" type="xs:string"/>
+            <xs:element name="patronymic" type="xs:string"/>
+            <xs:element name="lastName" type="xs:string"/>
+            <xs:element name="age" type="xs:int"/>
+            <xs:element name="birthDate" type="xs:date"/>
+            <xs:element name="rnokpp" type="xs:string"/>
+            <xs:element name="unzr" type="xs:string"/>
+            <xs:element name="pasport" type="xs:string"/>
+            <xs:element name="isChecked" type="xs:boolean"/>
+            <xs:element name="CheckedRequest" type="xs:dateTime"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

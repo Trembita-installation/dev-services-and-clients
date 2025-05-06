@@ -1,0 +1,305 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "rest-sync-service-node-express-js",
+    "description": "This Node.js Express server allows you to manage a list of people. It provides endpoints to perform CRUD operations on person records stored in the database. The server uses Sequelize as an ORM to interact with the database and has features such as input validation, logging, and error handling.",
+    "version": "1.0.0"
+  },
+  "host": "",
+  "paths": {
+    "/person/": {
+      "post": {
+        "tags": [
+          "Person Service"
+        ],
+        "summary": "create Person",
+        "description": "Route to create a new person. It uses request validation middleware to validate the request body. If there are validation errors, it logs them and returns a 422 status with the validation errors. Otherwise, it delegates the creation operation to the createPerson controller function.",
+        "parameters": [
+          {
+            "name": "content-type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "409": {
+            "description": "Conflict"
+          },
+          "415": {
+            "description": "Unsupported Media Type! Only application/json supported."
+          },
+          "422": {
+            "description": "Unprocessable Entity"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "example": "any"
+                  },
+                  "surname": {
+                    "example": "any"
+                  },
+                  "patronym": {
+                    "example": "any"
+                  },
+                  "dateOfBirth": {
+                    "example": "any"
+                  },
+                  "rnokpp": {
+                    "example": "any"
+                  },
+                  "unzr": {
+                    "example": "any"
+                  },
+                  "passportNumber": {
+                    "example": "any"
+                  },
+                  "gender": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Person Service"
+        ],
+        "summary": "get Persons By Query Parameters",
+        "description": "Route to get a list of persons by query parameters.Example ",
+        "parameters": [
+          {
+            "name": "_page",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_limit",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "surname",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "patronym",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "dateOfBirth",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "rnokpp",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "unzr",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "passportNumber",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "gender",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "422": {
+            "description": "Unprocessable Entity"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Person Service"
+        ],
+        "summary": "update Persons By Attribute",
+        "description": "Route to update persons by attribute. It also uses request validation middleware to validate the request body. If there are validation errors, it logs them and returns a 422 status with the validation errors. Otherwise, it delegates the update operation to the updatePersons controller function.",
+        "parameters": [
+          {
+            "name": "content-type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "409": {
+            "description": "Conflict"
+          },
+          "415": {
+            "description": "Unsupported Media Type! Only application/json supported."
+          },
+          "422": {
+            "description": "Unprocessable Entity"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "attribute": {
+                    "example": "any"
+                  },
+                  "value": {
+                    "example": "any"
+                  },
+                  "name": {
+                    "example": "any"
+                  },
+                  "surname": {
+                    "example": "any"
+                  },
+                  "patronym": {
+                    "example": "any"
+                  },
+                  "dateOfBirth": {
+                    "example": "any"
+                  },
+                  "rnokpp": {
+                    "example": "any"
+                  },
+                  "unzr": {
+                    "example": "any"
+                  },
+                  "passportNumber": {
+                    "example": "any"
+                  },
+                  "gender": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Person Service"
+        ],
+        "summary": "delete Persons By Attribute",
+        "description": "Route to delete persons by attribute. It also uses request validation middleware to validate the request query. If there are validation errors, it logs them and returns a 422 status with the validation errors. Otherwise, it delegates the operation to the deletePersons controller function.",
+        "parameters": [
+          {
+            "name": "attribute",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "value",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "422": {
+            "description": "Unprocessable Entity"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/status/": {
+      "get": {
+        "tags": [
+          "Service Status"
+        ],
+        "summary": "Check Service Status",
+        "description": "Route to check the service status.",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    }
+  }
+}

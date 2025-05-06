@@ -1,0 +1,5 @@
+const path=require('path')// Імпортуємо модуль path для роботи з шляхами файлів
+
+module.exports={
+  'config': path.resolve('./config','config.js')// Визначаємо шлях до файлу конфігурації Sequelize
+}

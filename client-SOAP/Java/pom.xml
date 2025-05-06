@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-parent</artifactId>
+            <version>3.3.3</version>
+            <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>com.ega</groupId>
+    <artifactId>SpringClientSOAP</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+        <exec.mainClass>com.ega.springclientsoap.SpringClientSOAP</exec.mainClass>
+    </properties>
+	<dependencies>
+		
+                <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+                        <version>3.3.1</version>
+		</dependency>
+                
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+                        <version>3.3.3</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+                        <version>1.18.30</version>
+                        <scope>provided</scope>
+		</dependency>
+                    <dependency>
+                        <groupId>org.json</groupId>
+                        <artifactId>json</artifactId>
+                        <version>20240303</version>
+                    </dependency>
+
+                <dependency>
+                    <groupId>org.apache.cxf</groupId>
+                    <artifactId>cxf-rt-frontend-jaxws</artifactId>
+                    <version>4.1.1</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-web-services</artifactId>
+                    <version>3.3.3</version>
+                </dependency>
+	 <dependency>
+	  <groupId>org.springframework</groupId>
+	  <artifactId>spring-webflux</artifactId>
+	  <version>6.1.12</version>
+	  <type>jar</type>
+	 </dependency>
+	</dependencies>
+                    
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<image>
+						<builder>paketobuildpacks/builder-jammy-base:latest</builder>
+					</image>
+					<excludes>
+						<exclude>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+						</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+                        <plugin>
+                            <groupId>org.apache.cxf</groupId>
+                            <artifactId>cxf-codegen-plugin</artifactId>
+                            <version>4.1.1</version>
+                            <executions>
+                                <execution>
+                                    <id>generate-sources</id>
+                                    <phase>generate-sources</phase>
+                                    <configuration>
+                                        <sourceRoot>${project.build.directory}/generated-sources/cxf</sourceRoot>
+                                        <wsdlOptions>
+                                            <wsdlOption>
+                                                <wsdl>${basedir}/src/main/resources/Persons.wsdl</wsdl>
+                                            </wsdlOption>
+                                        </wsdlOptions>
+                                    </configuration>
+                                    <goals>
+                                        <goal>wsdl2java</goal>
+                                    </goals>
+                                </execution>
+                            </executions>
+                        </plugin>
+                        
+		</plugins>
+	</build>
+    
+</project>
