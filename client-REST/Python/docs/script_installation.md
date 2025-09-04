@@ -14,7 +14,7 @@
 
 1. Завантажити скрипт:
 ```bash
-wget https://github.com/Trembita-installation/dev-services-and-clients/blob/main/client-REST/Python/deploy.sh
+wget https://raw.githubusercontent.com/Trembita-installation/dev-services-and-clients/master/client-REST/Python/deploy.sh
 ```
 
 2. Зробити файл виконуваним:
