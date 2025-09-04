@@ -28,7 +28,7 @@ sudo add-apt-repository ppa:deadsnakes/ppa
 
 2. Завантажити скрипт:
 ```bash
-wget https://github.com/Trembita-installation/dev-services-and-clients/blob/main/service-SOAP/Python/deploy_by_gunicorn.sh
+wget https://raw.githubusercontent.com/Trembita-installation/dev-services-and-clients/master/service-SOAP/Python/deploy_by_gunicorn.sh
 ```
 
 3. Відредагувати скрипт «deploy_by_gunicorn.sh», замінивши значення параметрів `DB_USER`, `DB_PASSWORD`, `DB_NAME`, `DB_HOST` та `DB_PORT` на ваші реальні дані, де:
