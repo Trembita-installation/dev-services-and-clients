@@ -18,7 +18,7 @@
 1. Завантажити скрипт:
 
 ```bash
-wget https://github.com/Trembita-installation/dev-services-and-clients/blob/main/service-REST/Python/deploy.sh
+wget https://raw.githubusercontent.com/Trembita-installation/dev-services-and-clients/master/service-REST/Python/deploy.sh
 ```
 
 2. Відредагувати скрипт `deploy.sh`, замінивши значення параметрів `DB_USER`, `DB_PASSWORD`, `DB_NAME`, `DB_HOST` та `DB_PORT` на ваші реальні дані, де:
